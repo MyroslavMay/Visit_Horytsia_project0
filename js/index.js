@@ -27,14 +27,22 @@ const modalobj = {
         this.modalContainer.style.display = 'none';
     },
     render() {
-        //console.log(this.modalContainer)
         this.modalContainer.addEventListener('click', (e) =>
             e.target === e.currentTarget && this.closeModal());
         this.sendbutton.addEventListener('click', () => this.closeModal());
-        //this.orderButton.addEventListener('click', () => this.openModal());
     }
 }
 modalobj.render()
+
+function loadmodal() {
+    const md = document.getElementsByClassName('modalContainer')[0]
+    md.style.display = 'flex';
+}
+const orderButton = document.getElementById('orderButton')
+orderButton.addEventListener('click', () => {
+    loadmodal()
+}
+)
 
 function dispatch(action, container, data = state) {
     switch (action) {
@@ -70,16 +78,6 @@ const section4 = document.getElementsByClassName('section4_wrap')[0];
 dispatch('section4', section4)
 
 const open = document.getElementsByClassName('open')[0]
-//const aside = document.getElementsByTagName('aside')[0]
-//function modalNew(element, container, data) {
-//    element.addEventListener('click', () => container.style.display = data)
-//}
-//modalNew(open, aside, 'block')
-//* Прокручування до елемента
-//targetElement.scrollIntoView({
-//    behavior: 'smooth', // Плавне прокручування
-//    block: 'start' // Вирівнювання: 'start', 'center', 'end', 'nearest'
-//});
 //scroll
 const menu = Array.from(document.getElementsByClassName('menu'))
 const footer = Array.from(document.getElementsByClassName('footerli'))
